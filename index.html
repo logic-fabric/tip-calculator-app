@@ -30,7 +30,52 @@
     </head>
 
     <body>
-      <h1>Tip Calculator App</h1>
+      <header>
+        <img src="img/logo.svg" alt="Splitter" />
+      </header>
+
+      <main>
+        <form>
+          <label for="bill-input">Bill</label>
+          <input id="bill-input" type="number" name="bill-value" />
+
+          <label>Select Tip %</label>
+
+          <div>
+            <button>5%</button>
+            <button>10%</button>
+            <button>15%</button>
+            <button>25%</button>
+            <button>50%</button>
+            <button>Custom</button>
+          </div>
+
+          <label for="nb-of-people">Number of People</label>
+          <input id="nb-of-people" type="number" name="nb-of-people" />
+
+          <div>
+            <div>
+              <div>
+                <p>Tip Amount</p>
+                <p>/ person</p>
+              </div>
+
+              <p>$0.00</p>
+            </div>
+
+            <div>
+              <div>
+                <p>Total</p>
+                <p>/ person</p>
+              </div>
+
+              <p>$0.00</p>
+            </div>
+
+            <button type="reset">RESET</button>
+          </div>
+        </form>
+      </main>
     </body>
   </html>
 </html>
