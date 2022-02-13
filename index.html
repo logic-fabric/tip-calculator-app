@@ -21,7 +21,7 @@
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet"
       />
 
@@ -36,22 +36,34 @@
 
       <main>
         <form>
-          <label for="bill-input">Bill</label>
-          <input id="bill-input" type="number" name="bill-value" />
-
-          <label>Select Tip %</label>
-
           <div>
-            <button>5%</button>
-            <button>10%</button>
-            <button>15%</button>
-            <button>25%</button>
-            <button>50%</button>
-            <button>Custom</button>
-          </div>
+            <label for="bill-input">Bill</label>
 
-          <label for="nb-of-people">Number of People</label>
-          <input id="nb-of-people" type="number" name="nb-of-people" />
+            <div>
+              <img src="img/icon-dollar.svg" height="24" aria-hidden />
+
+              <input id="bill-input" type="text" name="bill-value" />
+            </div>
+
+            <label>Select Tip %</label>
+
+            <div>
+              <button>5%</button>
+              <button>10%</button>
+              <button>15%</button>
+              <button>25%</button>
+              <button>50%</button>
+              <button>Custom</button>
+            </div>
+
+            <label for="nb-of-people">Number of People</label>
+
+            <div>
+              <img src="img/icon-person.svg" height="24" aria-hidden />
+
+              <input id="nb-of-people" type="text" name="nb-of-people" />
+            </div>
+          </div>
 
           <div>
             <div>

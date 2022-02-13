@@ -1,0 +1,66 @@
+/* =======================
+   RAW TAGS DEFAULT STYLES
+   ======================= */
+
+html {
+  box-sizing: border-box;
+
+  color: $neutral-900;
+  font-family: $font-text;
+  font-size: 1rem;
+  font-weight: 400;
+
+  background: $neutral-100;
+
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+header,
+main {
+  max-width: $large-container-width;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 2rem;
+
+  background: white;
+}
+
+form {
+  display: flex;
+
+  & > div {
+    padding: 1rem;
+    flex: 1;
+  }
+}
+
+p,
+label,
+input,
+button {
+  font-size: $txt-size;
+}
