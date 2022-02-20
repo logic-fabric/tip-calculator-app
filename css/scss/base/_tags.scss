@@ -10,8 +10,6 @@ html {
   font-size: 1rem;
   font-weight: 400;
 
-  background: $neutral-100;
-
   scroll-behavior: smooth;
 }
 
@@ -24,43 +22,77 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   min-height: 100vh;
+
+  background: $neutral-200;
 }
 
-header,
-main {
+section {
   max-width: $large-container-width;
   margin: auto;
-  padding: 1.5rem;
 }
 
 header {
+  padding: 4rem;
+
   text-align: center;
 }
 
 main {
-  margin: 2rem 0;
-  padding: 2rem;
-  border-radius: 2rem;
+  justify-content: flex-start;
 
-  background: white;
+  margin: 0 0 2rem 0
 }
 
 form {
   display: flex;
 
   & > div {
-    padding: 1rem;
     flex: 1;
   }
 }
 
 p,
-label,
+label {
+  font-size: $txt-size;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 0.5rem 0;
+
+  color: white;
+}
+
+label {
+  display: block;
+
+  margin: 0 0 0.5rem 0;
+
+  color: $neutral-500;
+}
+
 input,
 button {
-  font-size: $txt-size;
+  border: none;
+
+  font-size: 1.2 * $txt-size;
+}
+
+input {
+  text-align: right;
+
+  background: $neutral-100;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+
+  color: white;
+  text-align: center;
+
+  background: $neutral-700;
+  cursor: pointer;
 }

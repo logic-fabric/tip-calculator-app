@@ -30,64 +30,84 @@
     </head>
 
     <body>
-      <header>
-        <img src="img/logo.svg" alt="Splitter" />
-      </header>
+      <section>
+        <header>
+          <img src="img/logo.svg" alt="Splitter" />
+        </header>
 
-      <main>
-        <form>
-          <div>
-            <label for="bill-input">Bill</label>
-
-            <div>
-              <img src="img/icon-dollar.svg" height="24" aria-hidden />
-
-              <input id="bill-input" type="text" name="bill-value" />
-            </div>
-
-            <label>Select Tip %</label>
-
-            <div>
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>25%</button>
-              <button>50%</button>
-              <button>Custom</button>
-            </div>
-
-            <label for="nb-of-people">Number of People</label>
-
-            <div>
-              <img src="img/icon-person.svg" height="24" aria-hidden />
-
-              <input id="nb-of-people" type="text" name="nb-of-people" />
-            </div>
-          </div>
-
-          <div>
-            <div>
+        <main>
+          <form class="card">
+            <div class="card__panel card__panel--left">
               <div>
-                <p>Tip Amount</p>
-                <p>/ person</p>
+                <label for="bill-input">Bill</label>
+
+                <div class="card__input-field">
+                  <img src="img/icon-dollar.svg" height="24" aria-hidden />
+
+                  <input
+                    id="bill-input"
+                    type="text"
+                    name="bill-value"
+                    placeholder="0"
+                  />
+                </div>
               </div>
 
-              <p>$0.00</p>
-            </div>
-
-            <div>
               <div>
-                <p>Total</p>
-                <p>/ person</p>
+                <label>Select Tip %</label>
+
+                <div class="card__tips-btn-group">
+                  <button>5%</button>
+                  <button>10%</button>
+                  <button>15%</button>
+                  <button>25%</button>
+                  <button>50%</button>
+                  <button>Custom</button>
+                </div>
               </div>
 
-              <p>$0.00</p>
+              <div>
+                <label for="nb-of-people">Number of People</label>
+
+                <div class="card__input-field">
+                  <img src="img/icon-person.svg" height="24" aria-hidden />
+
+                  <input
+                    id="nb-of-people"
+                    type="text"
+                    name="nb-of-people"
+                    placeholder="0"
+                  />
+                </div>
+              </div>
             </div>
 
-            <button type="reset">RESET</button>
-          </div>
-        </form>
-      </main>
+            <div class="card__panel card__panel--right">
+              <div>
+                <div class="card__result">
+                  <div>
+                    <p class="card__result-type">Tip Amount</p>
+                    <p class="card__result-unit">/ person</p>
+                  </div>
+
+                  <p class="card__result-value">$0.00</p>
+                </div>
+
+                <div class="card__result">
+                  <div>
+                    <p class="card__result-type">Total</p>
+                    <p class="card__result-unit">/ person</p>
+                  </div>
+
+                  <p class="card__result-value">$0.00</p>
+                </div>
+              </div>
+
+              <button type="reset">RESET</button>
+            </div>
+          </form>
+        </main>
+      </section>
     </body>
   </html>
 </html>

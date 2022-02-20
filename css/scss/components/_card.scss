@@ -1,0 +1,96 @@
+.card {
+  padding: 2rem;
+  border-radius: 2rem;
+
+  background: white;
+}
+
+.card__panel {
+  min-width: 28rem;
+  height: 26rem;
+}
+
+.card__panel--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 0 1rem 0 0;
+  padding: 1rem 0;
+}
+
+.card__panel--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 0 0 0 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  background: $neutral-700;
+
+  button {
+    color: $neutral-700;
+    font-weight: 700;
+
+    background: $neutral-500;
+  }
+}
+
+.card__input-field {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  background: $neutral-100;
+
+  input {
+    width: calc(100% - 2rem);
+
+    outline: none;
+
+    &::placeholder {
+      color: $neutral-300;
+    }
+  }
+}
+
+.card__tips-btn-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  button {
+    width: 30%;
+    margin: 0.5rem 0;
+
+    &:last-child {
+      color: $neutral-500;
+      font-weight: 700;
+
+      background: $neutral-100;
+    }
+  }
+}
+
+.card__result {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2rem 0;
+
+  &-unit {
+    color: $neutral-500;
+    font-size: 0.9 * $txt-size;
+  }
+
+  &-value {
+    color: $primary-500;
+    font-size: 2.25 * $txt-size;
+    line-height: 1;
+  }
+}
