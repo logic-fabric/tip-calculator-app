@@ -3,6 +3,17 @@
   border-radius: 2rem;
 
   background: white;
+
+  button {
+    transition: all 250ms;
+
+    &:hover,
+    &:last-child:hover {
+      color: $neutral-700;
+
+      background: $neutral-200;
+    }
+  }
 }
 
 .card__panel {
@@ -43,10 +54,16 @@
   justify-content: space-between;
 
   padding: 0.5rem 1rem;
+  border: 0.25rem solid transparent;
   border-radius: 0.25rem;
   overflow: hidden;
 
   background: $neutral-100;
+  transition: all 350ms;
+
+  &:focus-within {
+    border-color: $primary-500;
+  }
 
   input {
     width: calc(100% - 2rem);
@@ -67,6 +84,9 @@
   button {
     width: 30%;
     margin: 0.5rem 0;
+    border-radius: 0.25rem;
+
+    transition: all 250ms;
 
     &:last-child {
       color: $neutral-500;
