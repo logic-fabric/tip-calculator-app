@@ -30,6 +30,23 @@
   padding: 1rem 0;
 }
 
+.card__nb-of-people {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-error {
+    display: none;
+
+    color: $danger-500;
+
+    &.show-error {
+      display: block;
+    }
+  }
+}
+
 .card__panel--right {
   display: flex;
   flex-direction: column;
@@ -63,6 +80,10 @@
 
   &:focus-within {
     border-color: $primary-500;
+  }
+
+  &--error {
+    border-color: $danger-500;
   }
 
   input {

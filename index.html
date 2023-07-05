@@ -26,6 +26,9 @@
 
     <!-- Custom CSS: -->
     <link rel="stylesheet" href="css/prefixed/main.css" />
+
+    <!-- Custom JS: -->
+    <script type="module" src="js/main.js"></script>
   </head>
 
   <body>
@@ -38,13 +41,13 @@
         <form class="card">
           <div class="card__panel card__panel--left">
             <div>
-              <label for="bill-input">Bill</label>
+              <label for="bill-amount">Bill</label>
 
               <div class="card__input-field">
                 <img src="img/icon-dollar.svg" height="24" alt="" aria-hidden />
 
                 <input
-                  id="bill-input"
+                  id="bill-amount"
                   type="number"
                   name="bill-value"
                   placeholder="0"
@@ -68,9 +71,15 @@
             </div>
 
             <div>
-              <label for="nb-of-people">Number of People</label>
+              <div class="card__nb-of-people-header" card>
+                <label for="nb-of-people">Number of People</label>
 
-              <div class="card__input-field">
+                <p class="card__nb-of-people-error" id="nb-of-people-error">
+                  Can't be zero
+                </p>
+              </div>
+
+              <div class="card__input-field" id="nb-of-people-container">
                 <img src="img/icon-person.svg" height="24" alt="" aria-hidden />
 
                 <input
