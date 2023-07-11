@@ -4,14 +4,12 @@ const nbOfPeopleInput = document.getElementById("nb-of-people");
 const nbOfPeopleError = document.getElementById("nb-of-people-error");
 const nbOfPeopleContainer = document.getElementById("nb-of-people-container");
 
+const tipButtons = document.getElementsByClassName("button--tip");
+
 const tipAmountPerPersonContainer = document.getElementById(
   "tip-amount-per-person"
 );
 const totalPerPersonContainer = document.getElementById("total-per-person");
-
-const tipButtons = document.getElementsByClassName("button--tip");
-
-let tipPercentage = 0; // as a number between 0 and 1
 
 billAmountInput.addEventListener("change", checkNbOfPeople);
 
@@ -21,27 +19,33 @@ for (let tipButton of tipButtons) {
 
 nbOfPeopleInput.addEventListener("change", checkNbOfPeople);
 
+let tipPercentage = 0; // as a number between 0 and 1
+
 function checkNbOfPeople() {
   const billAmount = getBillAmount();
   const nbOfPeople = getNbOfPeople();
 
   if (isValidAmount(billAmount)) {
     if (isValidNbOfPeople(nbOfPeople)) {
-      nbOfPeopleContainer.classList.remove("card__input-field--error");
-      nbOfPeopleError.classList.remove("show-error");
-
-      const tipAmountPerPerson = getTipAmountPerPerson();
-      const totalPerPerson = getTotalPerPerson();
-
-      tipAmountPerPersonContainer.textContent = `${formatPrice(
-        tipAmountPerPerson
-      )}`;
-      totalPerPersonContainer.textContent = `${formatPrice(totalPerPerson)}`;
+      displayTipAndTotalPerPerson();
     } else {
       nbOfPeopleContainer.classList.add("card__input-field--error");
       nbOfPeopleError.classList.add("show-error");
     }
   }
+}
+
+function displayTipAndTotalPerPerson() {
+  nbOfPeopleContainer.classList.remove("card__input-field--error");
+  nbOfPeopleError.classList.remove("show-error");
+
+  const tipAmountPerPerson = getTipAmountPerPerson();
+  const totalPerPerson = getTotalPerPerson();
+
+  tipAmountPerPersonContainer.textContent = `${formatPrice(
+    tipAmountPerPerson
+  )}`;
+  totalPerPersonContainer.textContent = `${formatPrice(totalPerPerson)}`;
 }
 
 function setTipPercentage(event) {
@@ -52,13 +56,7 @@ function setTipPercentage(event) {
   const nbOfPeople = getNbOfPeople();
 
   if (isValidNbOfPeople(nbOfPeople)) {
-    const tipAmountPerPerson = getTipAmountPerPerson();
-    const totalPerPerson = getTotalPerPerson();
-
-    tipAmountPerPersonContainer.textContent = `${formatPrice(
-      tipAmountPerPerson
-    )}`;
-    totalPerPersonContainer.textContent = `${formatPrice(totalPerPerson)}`;
+    displayTipAndTotalPerPerson();
   }
 }
 
