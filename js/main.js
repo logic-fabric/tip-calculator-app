@@ -12,12 +12,11 @@ const tipAmountPerPersonContainer = document.getElementById(
 const totalPerPersonContainer = document.getElementById("total-per-person");
 
 billAmountInput.addEventListener("change", checkNbOfPeople);
+nbOfPeopleInput.addEventListener("change", checkNbOfPeople);
 
 for (let tipButton of tipButtons) {
   tipButton.addEventListener("click", setTipPercentage);
 }
-
-nbOfPeopleInput.addEventListener("change", checkNbOfPeople);
 
 let tipPercentage = 0; // as a number between 0 and 1
 
@@ -35,39 +34,6 @@ function checkNbOfPeople() {
   }
 }
 
-function displayTipAndTotalPerPerson() {
-  nbOfPeopleContainer.classList.remove("card__input-field--error");
-  nbOfPeopleError.classList.remove("show-error");
-
-  const tipAmountPerPerson = getTipAmountPerPerson();
-  const totalPerPerson = getTotalPerPerson();
-
-  tipAmountPerPersonContainer.textContent = `${formatPrice(
-    tipAmountPerPerson
-  )}`;
-  totalPerPersonContainer.textContent = `${formatPrice(totalPerPerson)}`;
-}
-
-function setTipPercentage(event) {
-  const tipValue = event.target.textContent;
-
-  tipPercentage = parseTipValue(tipValue);
-
-  const nbOfPeople = getNbOfPeople();
-
-  if (isValidNbOfPeople(nbOfPeople)) {
-    displayTipAndTotalPerPerson();
-  }
-}
-
-function parseTipValue(value) {
-  if (value === "Custom") {
-    return 0;
-  }
-
-  return parseFloat(value.replace("%", "")) / 100;
-}
-
 function getBillAmount() {
   return Math.round(parseFloat(billAmountInput.value) * 100) / 100;
 }
@@ -82,6 +48,19 @@ function isValidAmount(amount) {
 
 function isValidNbOfPeople(nbOfPeople) {
   return !isNaN(nbOfPeople) && nbOfPeople > 0;
+}
+
+function displayTipAndTotalPerPerson() {
+  nbOfPeopleContainer.classList.remove("card__input-field--error");
+  nbOfPeopleError.classList.remove("show-error");
+
+  const tipAmountPerPerson = getTipAmountPerPerson();
+  const totalPerPerson = getTotalPerPerson();
+
+  tipAmountPerPersonContainer.textContent = `${formatPrice(
+    tipAmountPerPerson
+  )}`;
+  totalPerPersonContainer.textContent = `${formatPrice(totalPerPerson)}`;
 }
 
 function getTipAmountPerPerson() {
@@ -104,4 +83,24 @@ function formatPrice(price) {
   const [integerPart, decimalPart] = strPrice.split(".");
 
   return `${integerPart}.${decimalPart}`;
+}
+
+function setTipPercentage(event) {
+  const tipValue = event.target.textContent;
+
+  tipPercentage = parseTipValue(tipValue);
+
+  const nbOfPeople = getNbOfPeople();
+
+  if (isValidNbOfPeople(nbOfPeople)) {
+    displayTipAndTotalPerPerson();
+  }
+}
+
+function parseTipValue(value) {
+  if (value === "Custom") {
+    return 0;
+  }
+
+  return parseFloat(value.replace("%", "")) / 100;
 }
