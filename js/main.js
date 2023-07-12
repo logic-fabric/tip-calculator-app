@@ -88,7 +88,13 @@ function formatPrice(price) {
 function setTipPercentage(event) {
   const tipValue = event.target.textContent;
 
-  tipPercentage = parseTipValue(tipValue);
+  if (tipValue === "Custom") {
+    tipPercentage = 0;
+  } else {
+    tipPercentage = parseTipValue(tipValue);
+  }
+
+  showActiveTipButton(event);
 
   const nbOfPeople = getNbOfPeople();
 
@@ -98,9 +104,15 @@ function setTipPercentage(event) {
 }
 
 function parseTipValue(value) {
-  if (value === "Custom") {
-    return 0;
+  return parseFloat(value.replace("%", "")) / 100;
+}
+
+function showActiveTipButton(event) {
+  const tipButtons = document.getElementsByClassName("button--tip");
+
+  for (let tipButton of tipButtons) {
+    tipButton.classList.remove("active");
   }
 
-  return parseFloat(value.replace("%", "")) / 100;
+  event.target.classList.add("active");
 }
