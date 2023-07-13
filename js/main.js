@@ -5,6 +5,7 @@ const nbOfPeopleError = document.getElementById("nb-of-people-error");
 const nbOfPeopleContainer = document.getElementById("nb-of-people-container");
 
 const tipButtons = document.getElementsByClassName("button--tip");
+const customTipButton = document.getElementById("custom-tip-button");
 
 const tipAmountPerPersonContainer = document.getElementById(
   "tip-amount-per-person"
@@ -17,6 +18,8 @@ nbOfPeopleInput.addEventListener("change", checkNbOfPeople);
 for (let tipButton of tipButtons) {
   tipButton.addEventListener("click", setTipPercentage);
 }
+
+customTipButton.addEventListener("click", setTipPercentage);
 
 let tipPercentage = 0; // as a number between 0 and 1
 
@@ -67,7 +70,9 @@ function getTipAmountPerPerson() {
   const billAmount = getBillAmount();
   const nbOfPeople = getNbOfPeople();
 
-  return (billAmount * tipPercentage) / nbOfPeople;
+  const tipAmountByPerson = (billAmount * tipPercentage) / nbOfPeople;
+
+  return tipAmountByPerson ? tipAmountByPerson : 0;
 }
 
 function getTotalPerPerson() {
@@ -75,14 +80,16 @@ function getTotalPerPerson() {
   const nbOfPeople = getNbOfPeople();
   const tipAmount = getTipAmountPerPerson();
 
-  return billAmount / nbOfPeople + tipAmount;
+  const totalPerPerson = billAmount / nbOfPeople + tipAmount;
+
+  return totalPerPerson ? totalPerPerson : 0;
 }
 
 function formatPrice(price) {
   const strPrice = price.toFixed(2).toString();
   const [integerPart, decimalPart] = strPrice.split(".");
 
-  return `${integerPart}.${decimalPart}`;
+  return `$${integerPart}.${decimalPart}`;
 }
 
 function setTipPercentage(event) {
@@ -90,8 +97,6 @@ function setTipPercentage(event) {
 
   if (tipValue === "Custom") {
     replaceCustomTipButtonByInput();
-
-    tipPercentage = 0;
   } else {
     replaceCustomTipInputByButton();
 
@@ -112,10 +117,26 @@ function replaceCustomTipButtonByInput() {
 
   customTipContainer.innerHTML = `
     <input
+      id="custom-tip-input"
       type="number"
       placeholder="0"
-      min="1"
+      defaultValue="0"
+      min="0"
     />`;
+
+  const customTipInput = document.getElementById("custom-tip-input");
+
+  customTipInput.addEventListener("change", setCustomTipPercentage);
+}
+
+function setCustomTipPercentage(event) {
+  const customTipInputValue = event.target.value;
+
+  if (customTipInputValue) {
+    tipPercentage = parseInt(customTipInputValue) / 100;
+  }
+
+  displayTipAndTotalPerPerson();
 }
 
 function replaceCustomTipInputByButton() {
