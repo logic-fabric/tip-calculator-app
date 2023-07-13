@@ -97,23 +97,46 @@
   }
 }
 
-.card__tips-btn-group {
+.card__tip-buttons-group {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 
-  button {
+  button,
+  #custom-tip-container {
     width: 30%;
     margin: 0.5rem 0;
+  }
+
+  button {
     border-radius: 0.25rem;
 
     transition: all 250ms;
+  }
 
-    &:last-child {
+  #custom-tip-container {
+    button {
+      width: 100%;
+      margin: 0;
+
       color: $neutral-500;
       font-weight: 700;
 
       background: $neutral-100;
+    }
+
+    input {
+      width: 100%;
+      max-width: 8.375rem;
+      height: 100%;
+      max-height: 2.75rem;
+      border: 0.25rem solid transparent;
+      border-radius: 0.25rem;
+      outline: none;
+
+      &:focus {
+        border-color: $primary-500;
+      }
     }
   }
 }

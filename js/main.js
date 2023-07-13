@@ -89,8 +89,12 @@ function setTipPercentage(event) {
   const tipValue = event.target.textContent;
 
   if (tipValue === "Custom") {
+    replaceCustomTipButtonByInput();
+
     tipPercentage = 0;
   } else {
+    replaceCustomTipInputByButton();
+
     tipPercentage = parseTipValue(tipValue);
   }
 
@@ -101,6 +105,32 @@ function setTipPercentage(event) {
   if (isValidNbOfPeople(nbOfPeople)) {
     displayTipAndTotalPerPerson();
   }
+}
+
+function replaceCustomTipButtonByInput() {
+  const customTipContainer = document.getElementById("custom-tip-container");
+
+  customTipContainer.innerHTML = `
+    <input
+      type="number"
+      placeholder="0"
+      min="1"
+    />`;
+}
+
+function replaceCustomTipInputByButton() {
+  const customTipContainer = document.getElementById("custom-tip-container");
+
+  customTipContainer.innerHTML = `
+    <button
+      id="custom-tip-button"
+      class="button--tip"
+      type="button"
+    >Custom</button>`;
+
+  const customTipButton = document.getElementById("custom-tip-button");
+
+  customTipButton.addEventListener("click", setTipPercentage);
 }
 
 function parseTipValue(value) {
