@@ -34,23 +34,19 @@ section {
 }
 
 header {
-  padding: 4rem;
+  padding: 3rem;
 
   text-align: center;
+
+  @media (min-width: $md-breakpoint) {
+    padding: 4rem;
+  }
 }
 
 main {
   justify-content: flex-start;
 
   margin: 0 0 2rem 0;
-}
-
-form {
-  display: flex;
-
-  & > div {
-    flex: 1;
-  }
 }
 
 p,
