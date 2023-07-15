@@ -5,3 +5,5 @@ A junior [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/ti
 ## Demo page
 
 This code is rendered on this [GitHub page](https://logic-fabric.github.io/tip-calculator-app/).
+
+![Calculator preview in an empty state, for desktop](./design/desktop-design-empty.jpg)
