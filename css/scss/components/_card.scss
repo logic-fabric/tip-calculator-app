@@ -14,11 +14,16 @@
   button {
     transition: all 250ms;
 
-    &:hover,
-    &.active {
+    &:hover {
       color: $neutral-700;
 
       background: $neutral-200;
+    }
+
+    &.active {
+      color: $neutral-700;
+
+      background: $primary-500;
     }
   }
 
