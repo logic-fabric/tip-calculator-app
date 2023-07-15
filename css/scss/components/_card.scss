@@ -52,47 +52,6 @@
   }
 }
 
-.card__nb-of-people {
-  &-header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &-error {
-    display: none;
-
-    color: $danger-500;
-
-    &.show-error {
-      display: block;
-    }
-  }
-}
-
-.card__panel--right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  margin: 2rem 0 0 0;
-  padding: 1rem 2rem 2rem 2rem;
-  border-radius: 1rem;
-
-  background: $neutral-700;
-
-  button {
-    color: $neutral-700;
-    font-weight: 700;
-
-    background: $neutral-500;
-  }
-
-  @media (min-width: $md-breakpoint) {
-    margin: 0 0 0 1rem;
-    padding: 2rem;
-  }
-}
-
 .card__input-field {
   display: flex;
   justify-content: space-between;
@@ -173,6 +132,40 @@
   }
 }
 
+.card__nb-of-people {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-error {
+    display: none;
+
+    color: $danger-500;
+
+    &.show-error {
+      display: block;
+    }
+  }
+}
+
+.card__panel--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 2rem 0 0 0;
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 1rem;
+
+  background: $neutral-700;
+
+  @media (min-width: $md-breakpoint) {
+    margin: 0 0 0 1rem;
+    padding: 2rem;
+  }
+}
+
 .card__result {
   display: flex;
   justify-content: space-between;
@@ -188,5 +181,24 @@
     color: $primary-500;
     font-size: 2.25 * $txt-size;
     line-height: 1;
+  }
+}
+
+#reset-button {
+  color: $neutral-700;
+  font-weight: 700;
+
+  background: $primary-500;
+
+  &:disabled {
+    background: $neutral-500;
+
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
+    color: $neutral-700;
+
+    background: $neutral-200;
   }
 }

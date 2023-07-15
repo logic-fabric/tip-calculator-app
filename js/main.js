@@ -22,7 +22,7 @@ for (let tipButton of tipButtons) {
 }
 customTipButton.addEventListener("click", setTipPercentage);
 
-resetButton.addEventListener("click", resetTipPercentage);
+resetButton.addEventListener("click", resetCalculator);
 
 let tipPercentage = 0; // as a number between 0 and 1
 
@@ -38,6 +38,8 @@ function checkNbOfPeople() {
       nbOfPeopleError.classList.add("show-error");
     }
   }
+
+  resetButton.disabled = false;
 }
 
 function getBillAmount() {
@@ -97,6 +99,7 @@ function formatPrice(price) {
 
 function setTipPercentage(event) {
   const tipValue = event.target.textContent;
+  const nbOfPeople = getNbOfPeople();
 
   if (tipValue.includes("Custom")) {
     replaceCustomTipButtonByInput();
@@ -106,13 +109,12 @@ function setTipPercentage(event) {
     tipPercentage = parseTipValue(tipValue);
   }
 
-  showActiveTipButton(event);
-
-  const nbOfPeople = getNbOfPeople();
-
   if (isValidNbOfPeople(nbOfPeople)) {
     displayTipAndTotalPerPerson();
   }
+
+  showActiveTipButton(event);
+  resetButton.disabled = false;
 }
 
 function replaceCustomTipButtonByInput() {
@@ -173,11 +175,14 @@ function showActiveTipButton(event) {
   event.target.classList.add("active");
 }
 
-function resetTipPercentage() {
+function resetCalculator() {
+  billAmountInput.value = "";
+  nbOfPeopleInput.value = "";
   tipPercentage = 0;
 
   resetTipButtons();
   displayTipAndTotalPerPerson();
+  resetButton.disabled = true;
 }
 
 function resetTipButtons() {
